@@ -1,5 +1,72 @@
 body {
     height: 100%;
-    background: linear-gradient(90deg, #37393E 50%, #FFFFFF 50%);
-    color: white
+    background: #2F3136;
+    color: #DCDDDE;
 }
+
+img.icon {
+  display: block;
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  position: fixed;
+  top: 20px;
+  left: 40px;
+}
+
+img.profilepic {
+  border-radius: 60%;
+  display: block;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  object-fit: cover;
+}
+
+h1.name {
+  text-align: center;
+}
+
+h3.description{
+  text-align: center;
+}
+
+
+/* ======================DROPDOWN STARTS HERE====================== */
+
+.dropdown {
+  position: absolute;
+  position: fixed;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: #3A3F4B;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: 25px;
+  bottom: 20px;
+  left: 31px;
+}
+
+.dropdown-content a {
+  color: #DCDDDE;
+  padding: 12px, 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #42464E}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ======================DROPDOWN ENDS HERE====================== */
