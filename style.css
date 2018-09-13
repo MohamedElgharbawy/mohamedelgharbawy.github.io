@@ -33,8 +33,7 @@ h1.name {
 h3.description {
   text-align: center;
 }
-
-.github {
+a.github {
   background-image: url("images/github.png");
   width: 50px;
   height: 50px;
@@ -44,7 +43,7 @@ h3.description {
   margin-right: auto;
 }
 
-.github:hover {
+a.github:hover {
   background-image: url("images/github-color.png");
 }
 
