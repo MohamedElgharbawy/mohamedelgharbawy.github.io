@@ -47,6 +47,10 @@ a.github:hover {
   background-image: url("images/github-color.png");
 }
 
+a.github:visited {
+  background-image: url("images/github.png");
+}
+
 .row::after {
   content: "";
   clear: both;
