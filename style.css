@@ -33,6 +33,7 @@ h1.name {
 h3.description {
   text-align: center;
 }
+
 a.github {
   background-image: url("images/github.png");
   width: 50px;
@@ -51,10 +52,32 @@ a.github:visited {
   background-image: url("images/github.png");
 }
 
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+a.linkedin {
+  background-image: url("images/linkedin.png");
+  width: 50px;
+  height: 50px;
+  background-size: 100% 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a.linkedin:hover {
+  background-image: url("images/linkedin-color.png");
+}
+
+a.linkedin:visited {
+  background-image: url("images/linkedin.png");
+}
+
+.column {
+  flex: 50%;
+  padding: 5px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
 }
 
 
