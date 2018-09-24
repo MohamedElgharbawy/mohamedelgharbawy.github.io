@@ -34,6 +34,18 @@ h3.description {
   text-align: center;
 }
 
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  padding: 0;
+}
+
 a.github {
   background-image: url("images/github.png");
   width: 50px;
@@ -120,8 +132,8 @@ a.resume:visited {
 
 /* ======================DROPDOWN STARTS HERE====================== */
 .dropdown {
-  position: absolute;
   position: fixed;
+  position: absolute;
   display: inline-block;
 }
 
