@@ -133,8 +133,7 @@ a.resume:visited {
 /* ======================DROPDOWN STARTS HERE====================== */
 .dropdown {
   position: fixed;
-  position: absolute;
-  display: inline-block;
+    display: inline-block;
 }
 
 .dropdown-content {
