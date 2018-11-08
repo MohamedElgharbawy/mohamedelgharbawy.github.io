@@ -151,14 +151,14 @@ h1.aboutme {
 }
 
 //medium+ screen sizes
-@media (min-width:992px) {
+@media (min-width:1301px) {
     .desktop-only {
         display:block !important;
     }
 }
 
 //small screen sizes
-@media (max-width: 991px) {
+@media (max-width: 1300px) {
     .mobile-only {
         display:block !important;
     }
