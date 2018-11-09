@@ -1,7 +1,19 @@
 body {
-  height: 100%;
+  background: #2F3136;
+  margin: 0;
+}
+
+section {
+  height: 100vh;
+}
+
+.intro {
   background: #2F3136;
   color: #DCDDDE;
+}
+
+.aboutmeheader {
+  background: #FFFFFF
 }
 
 .hvr-rotate {
