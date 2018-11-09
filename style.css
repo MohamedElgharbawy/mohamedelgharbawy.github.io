@@ -4,7 +4,47 @@ body {
   color: #DCDDDE;
 }
 
+.hvr-rotate {
+  display:none;
+}
 
+.dropdown:hover .hvr-rotate {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.dropdown {
+  position: fixed;
+  display: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: #3A3F4B;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: 25px;
+  bottom: 20px;
+  left: 31px;
+}
+
+.dropdown-content a {
+  color: #DCDDDE;
+  padding: 12px, 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #42464E
+}
+
+.dropdown:hover .dropdown-content {
+  display: none;
+}
 
 img.profilepic {
   border-radius: 60%;
@@ -128,7 +168,7 @@ h1.aboutme {
   font-weight: normal;
 }
 
-@media only screen and (max-width : 640px) {
+@media only screen and (min-width : 640px) {
   /* Rotate */
   .hvr-rotate {
     display: inline-block;
