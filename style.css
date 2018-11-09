@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #2F3136;
   margin: 0;
@@ -173,11 +177,15 @@ a.resume:visited {
   margin: 0 auto;
 }
 
+#about {
+  
+}
 h1.aboutme {
   text-align: center;
   font-family: 'Annie Use Your Telescope';
   font-size: 75;
   font-weight: normal;
+
 }
 
 @media only screen and (min-width : 640px) {
