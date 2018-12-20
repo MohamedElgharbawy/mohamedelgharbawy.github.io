@@ -176,48 +176,41 @@ a.resume:visited {
   margin: 0 auto;
 }
 
-#aboutnav {
-
-}
-
 .aboutmeheader {
-  padding-top: 10%;
   background: #FFFFFF
 }
 
 h1.aboutme {
   text-align: center;
   font-family: 'Annie Use Your Telescope';
-  font-size: 600%;
+  font-size: 10vw;
   font-weight: lighter;
 }
 
 p.bio {
-  padding-left: 10%;
-  padding-right: 10%;
-  text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
+  text-align: justify;
+  text-justify: inter-word;
   font-family: 'Raleway';
-  font-size: 200%
+  font-size: 3vw;
+  color: gray;
 }
 
 h1.skills {
   text-align: center;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 600%;
+  font-size: 11vw;
   font-weight: lighter;
   color: white;
 }
 
-skilldiv {
-
-  float: left;
-}
-
 img.java {
-  width: 150px;
+  width: 17%;
   height: auto;
-  padding-left: 10%;
+  padding-left: 14%;
   margin-right: 5%;
+  float: left;
 }
 
 h3.JavaHeader {
@@ -226,16 +219,22 @@ h3.JavaHeader {
 }
 
 img.Cpp {
-  width: 150px;
+  padding-top: 13%;
+  width: 12%;
   height: auto;
-  padding-left: 10%;
+  padding-left: 16%;
   margin-right: 5%;
+  float: left;
 }
 
 h3.CppHeader {
   color: white;
   font-size: 40px;
+  padding-top: 13%
 }
+
+
+/* ======================MOBILE COMPATIBILITY====================== */
 
 @media only screen and (min-width : 640px) {
   /* Rotate */
@@ -257,12 +256,13 @@ h3.CppHeader {
     left: 40px;
   }
 
+  /* ======================DROPDOWN STARTS HERE====================== */
+
   .dropdown:hover .hvr-rotate {
     -webkit-transform: rotate(-90deg);
     transform: rotate(-90deg);
   }
 
-  /* ======================DROPDOWN STARTS HERE====================== */
   .dropdown {
     position: fixed;
     display: inline-block;
