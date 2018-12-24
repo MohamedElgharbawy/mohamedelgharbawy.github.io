@@ -200,37 +200,32 @@ p.bio {
 h1.skills {
   text-align: center;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 11vw;
+  font-size: 8vw;
   font-weight: lighter;
   color: white;
 }
 
 img.java {
-  width: 17%;
+  width: 11vw;
   height: auto;
   padding-left: 14%;
   margin-right: 5%;
-  float: left;
-}
-
-h3.JavaHeader {
-  color: white;
-  font-size: 40px;
 }
 
 img.Cpp {
-  padding-top: 13%;
-  width: 12%;
+  width: 8vw;
   height: auto;
-  padding-left: 16%;
-  margin-right: 5%;
-  float: left;
+  padding-top: 10%;
+  padding-left: 15%;
+  margin-right: 6%;
 }
 
-h3.CppHeader {
-  color: white;
-  font-size: 40px;
-  padding-top: 13%
+img.python {
+  width: 8vw;
+  height: auto;
+  padding-top: 10%;
+  padding-left: 15%;
+  margin-right: 6%;
 }
 
 
