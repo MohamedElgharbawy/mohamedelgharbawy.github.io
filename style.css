@@ -183,7 +183,7 @@ a.resume:visited {
 h1.aboutme {
   text-align: center;
   font-family: 'Annie Use Your Telescope';
-  font-size: 10vw;
+  font-size: 8vw;
   font-weight: lighter;
 }
 
@@ -193,7 +193,7 @@ p.bio {
   text-align: justify;
   text-justify: inter-word;
   font-family: 'Raleway';
-  font-size: 3vw;
+  font-size: 2vw;
   color: gray;
 }
 
@@ -250,6 +250,7 @@ img.Python {
     top: 20px;
     left: 40px;
   }
+}
 
   /* ======================DROPDOWN STARTS HERE====================== */
 
