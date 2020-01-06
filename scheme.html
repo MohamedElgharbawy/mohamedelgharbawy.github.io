@@ -1,0 +1,46 @@
+<!doctype html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="css/xterm.css"/>
+      <script src="js/xterm.js"></script>
+    </head>
+    <body>
+      <div id="terminal"></div>
+      <script>
+						var term = new Terminal();
+						term.open(document.getElementById('terminal'));
+						term.prompt = () => {
+								term.write('\r\nscm> ');
+						};
+						term.writeln('Welcome to my Scheme web intepreter!');
+						term.prompt();
+
+						// Move curr_line outside of async scope.
+						var curr_line = '';
+
+						term.on('key', function(key, ev) {
+								const printable = !ev.altKey && !ev.altGraphKey && !ev.ctrlKey && !ev.metaKey;
+
+								if (ev.keyCode === 13) {
+										term.prompt();
+										console.log(curr_line);
+										curr_line = '';
+								} else if (ev.keyCode === 8) {
+										// Do not delete the prompt
+										if (term.x > 2) {
+												curr_line = curr_line.slice(0, -1);
+												term.write('\b \b');
+										}
+								} else if (printable) {
+										curr_line += ev.key;
+										console.log(curr_line, ev.key)
+										term.write(key);
+								}
+						});
+
+						term.on('paste', function(data) {
+								term.write(data);
+						});
+      </script>
+    </body>
+  </html>
