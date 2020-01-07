@@ -44,29 +44,29 @@
 		} else if (ev.keyCode === 38) {	// Up Arrow
 		  if (entries.length > 0) {
 			curr_line = entries[currPos];
-		  	term.write('\33[2K\rscm> ' + entries[currPos]);
+		  	term.write('\33[2K\rscm> ' + curr_line);
 			if (currPos > 0) {
 			  currPos -= 1;
 			}
 		  }
 		} else if (ev.keyCode === 40) {	// Down arrow
-		  if (currPos === entries.length-1 || entires.length === 0) {
-			term.write('\33[2K\rscm> ');
-			curr_line = '';
-		  } else {
 			currPos += 1;
-			curr_line = entries[currPos];
-			term.write('\33[2K\rscm> ' + entries[currPos]);
-		  }
+			if (currPos === entries.length || entries.length === 0) {
+				currPos -= 1;
+				term.write('\33[2K\rscm> ');
+			} else {
+				curr_line = entries[currPos];
+				term.write('\33[2K\rscm> ' + curr_line);
+			}
 		} else if (printable) {
 		  curr_line += ev.key;
-		  console.log(curr_line, ev.key)
 		  term.write(key);
 		}
 	  });
 
 	  term.on('paste', function(data) {
-		term.write(data);
+		curr_line += data;
+		term.write(curr_line);
 	  });
 	</script>
   </body>
