@@ -1,51 +1,59 @@
 <!doctype html>
-  <html>
-    <head>
-			<title>Mohamed Elgharbawy</title>
-      <link rel="stylesheet" href="css/xterm.css"/>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
-			
-			<!-- Favicons -->
-			<link href="img/m.png" rel="icon">
-			<link href="img/m.png" rel="apple-touch-icon">
-    </head>
-    <body>
-      <div id="terminal"></div>
-			<script>
-						var term = term = new Terminal({cursorBlink: "block"});
-						term.open(document.getElementById('terminal'));
-						term.prompt = () => {
-								term.write('\r\nscm> ');
-						};
-						term.writeln('Welcome to my Scheme web intepreter!');
-						term.prompt();
+<html>
+  <head>
+	<title>Mohamed Elgharbawy</title>
+	<link rel="stylesheet" href="css/xterm.css"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
 
-						// Move curr_line outside of async scope.
-						var curr_line = '';
+	<!-- Favicons -->
+	<link href="img/m.png" rel="icon">
+	<link href="img/m.png" rel="apple-touch-icon">
+  </head>
+  <body>
+	<div id="terminal"></div>
+	<script>
+	  var curr_line = '';
+	  var entries = [];
+	  var currPos = 0;
+	  
+	  var term = new Terminal({cursorBlink: "block"});
+	  term.open(document.getElementById('terminal'));
+	  term.prompt = () => {
+		term.write('\n\r' + entries + '\r\nscm> ');
+	  };
+	  term.write('Welcome to my Scheme web intepreter!');
+	  term.prompt();
 
-						term.on('key', function(key, ev) {
-								const printable = !ev.altKey && !ev.altGraphKey && !ev.ctrlKey && !ev.metaKey;
+	  term.on('key', function(key, ev) {
+		const printable = !ev.altKey && !ev.altGraphKey && !ev.ctrlKey && !ev.metaKey;
 
-								if (ev.keyCode === 13) {
-										term.prompt();
-										console.log(curr_line);
-										curr_line = '';
-								} else if (ev.keyCode === 8) {
-										// Do not delete the prompt
-										if (term.buffer.cursorX > 5) {
-												curr_line = curr_line.slice(0, -1);
-												term.write('\b \b');
-										}
-								} else if (printable) {
-										curr_line += ev.key;
-										console.log(curr_line, ev.key)
-										term.write(key);
-								}
-						});
+		if (ev.keyCode === 13) {
+		  entries.push(curr_line);
+		  currPos = entries.length - 1;
+		  term.prompt();
+		  curr_line = '';
+		} else if (ev.keyCode === 8) {
+		  // Do not delete the prompt	
+		  if (term.buffer.cursorX > 5) {
+			curr_line = curr_line.slice(0, -1);
+			term.write('\b \b');
+		  }
+		} else if (ev.keyCode === 38) {
+		  curr_line = '';
+		  term.write('\33[2K\rscm> ' + entries[currPos]);
+		  if (currPos > 0) {
+			currPos -= 1;
+		  }
+		} else if (printable) {
+		  curr_line += ev.key;
+		  console.log(curr_line, ev.key)
+		  term.write(key);
+		}
+	  });
 
-						term.on('paste', function(data) {
-								term.write(data);
-						});
-			</script>
-    </body>
-  </html>
+	  term.on('paste', function(data) {
+		term.write(data);
+	  });
+	</script>
+  </body>
+</html>
