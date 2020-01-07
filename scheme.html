@@ -19,7 +19,7 @@
 	  var term = new Terminal({cursorBlink: "block"});
 	  term.open(document.getElementById('terminal'));
 	  term.prompt = () => {
-		term.write('\n\r' + currPos + '\r\nscm> ');
+		term.write('\n\r' + curr_line + '\r\nscm> ');
 	  };
 	  term.write('Welcome to my Scheme web intepreter!');
 	  term.prompt();
@@ -28,10 +28,14 @@
 		const printable = !ev.altKey && !ev.altGraphKey && !ev.ctrlKey && !ev.metaKey;
 
 		if (ev.keyCode === 13) {	// Enter key
-		  entries.push(curr_line);
-		  currPos = entries.length - 1;
-		  term.prompt();
-		  curr_line = '';
+		  if (curr_line != ''){
+			entries.push(curr_line);
+		  	currPos = entries.length - 1;
+			term.prompt();
+		  	curr_line = '';
+		  } else {
+			term.write('\n\rscm> ');
+		  }
 		} else if (ev.keyCode === 8) {	// Backspace
 		  if (term.buffer.cursorX > 5) {
 			curr_line = curr_line.slice(0, -1);
