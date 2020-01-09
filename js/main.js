@@ -1,3 +1,9 @@
+require.config({
+    paths: {
+        foo: 'js/index.js'
+    }
+});
+
 (function ($) {
 	"use strict";
 	var nav = $('nav');
