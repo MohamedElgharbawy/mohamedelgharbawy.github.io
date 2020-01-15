@@ -27,6 +27,7 @@
 			var curr_line = '';
 			var entries = [];
 			var currPos = 0;
+			var pos = 0;
 						
 			term.open(document.getElementById('terminal'));
 			term.prompt = () => {
@@ -82,10 +83,8 @@
 						if(ev.keyCode == 9) {	// Tab
 							input = "    ";
 						}
-						//curr_line += ev.key;
-						curr_line = [curr_line.slice(0, term.buffer.cursorX+6), input, curr_line.slice(term.buffer.cursorX+6)].join('') 
-						//curr_line += ev.key;
-						term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
+						curr_line = [curr_line.slice(0, term.buffer.cursorX-5), input, curr_line.slice(term.buffer.cursorX-5)].join('') 
+						term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);			
 					} else {
 						term.write(key);
 					}
