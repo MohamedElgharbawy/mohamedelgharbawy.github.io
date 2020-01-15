@@ -3,20 +3,31 @@
 	<head>
 		<title>Mohamed Elgharbawy</title>
 		<link rel="stylesheet" href="css/xterm.css"/>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
+		<script src="js/xterm.js"></script>
+		<script src="xterm-addon-fit/lib/xterm-addon-fit.js"></script>
 		
-		<!-- Favicons -->
+		<!-- Favicons -->	
 		<link href="img/m.png" rel="icon">
 		<link href="img/m.png" rel="apple-touch-icon">
 	</head>
 	<body>
 		<div id="terminal"></div>
 		<script>
+			/*import { Terminal } from 'xterm';
+			import { FitAddon } from 'xterm-addon-fit';
+
+
+			term.loadAddon(fitAddon);
+			term.open(containerElement);
+			fitAddon.fit();*/
+			
+			//import { FitAddon } from 'xterm-addon-fit';
+			var term = new Terminal({cursorBlink: "block"});
+
 			var curr_line = '';
 			var entries = [];
 			var currPos = 0;
 						
-			var term = new Terminal({cursorBlink: "block"});
 			term.open(document.getElementById('terminal'));
 			term.prompt = () => {
 				term.write('\n\r' + curr_line + '\r\n\u001b[32mscm> \u001b[37m');
@@ -49,11 +60,11 @@
 					}
 				} else if (ev.keyCode === 38) {	// Up arrow
 					if (entries.length > 0) {
-						curr_line = entries[currPos];
-						term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
 						if (currPos > 0) {
 							currPos -= 1;
 						}
+						curr_line = entries[currPos];
+						term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
 					}
 				} else if (ev.keyCode === 40) {	// Down arrow
 					currPos += 1;
@@ -68,9 +79,12 @@
 				} else if (printable && !(ev.keyCode === 39 && term.buffer.cursorX > curr_line.length + 4)) {
 					if (ev.keyCode != 37 && ev.keyCode != 39) {
 						//curr_line += ev.key;
-						curr_line = curr_line.slice(0, term.buffer.cursorX-5).concat(ev.key);
+						//curr_line = [curr_line.slice(0, curr_line.length - term.buffer.cursorX+6), ev.key, curr_line.slice(curr_line.length - term.buffer.cursorX+6)].join('') 
+						curr_line += ev.key;
+						term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
+					} else {
+						term.write(key);
 					}
-					term.write(key);
 				}
 			});
 
