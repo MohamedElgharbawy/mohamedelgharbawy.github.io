@@ -40,14 +40,14 @@
 				&& !(ev.keyCode === 37 && term.buffer.cursorX < 6);
 
 				if (ev.keyCode === 13) {	// Enter key
-					if (curr_line != ''){
+					if (curr_line.replace(/^\s+|\s+$/g, '').length != 0){	// Check if string is all whitespace
 						entries.push(curr_line);
 						currPos = entries.length - 1;
 						term.prompt();
-						curr_line = '';
 					} else {
 						term.write('\n\33[2K\r\u001b[32mscm> \u001b[37m');
 					}
+					curr_line = '';
 				} else if (ev.keyCode === 8) {	// Backspace
 					if (term.buffer.cursorX > 5) {
 						curr_line = curr_line.slice(0, term.buffer.cursorX-6) + curr_line.slice(term.buffer.cursorX-5);
@@ -78,9 +78,13 @@
 					}
 				} else if (printable && !(ev.keyCode === 39 && term.buffer.cursorX > curr_line.length + 4)) {
 					if (ev.keyCode != 37 && ev.keyCode != 39) {
+						var input = ev.key;
+						if(ev.keyCode == 9) {	// Tab
+							input = "    ";
+						}
 						//curr_line += ev.key;
-						//curr_line = [curr_line.slice(0, curr_line.length - term.buffer.cursorX+6), ev.key, curr_line.slice(curr_line.length - term.buffer.cursorX+6)].join('') 
-						curr_line += ev.key;
+						curr_line = [curr_line.slice(0, term.buffer.cursorX+6), input, curr_line.slice(term.buffer.cursorX+6)].join('') 
+						//curr_line += ev.key;
 						term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
 					} else {
 						term.write(key);
