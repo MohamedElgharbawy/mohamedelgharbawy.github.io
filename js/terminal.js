@@ -1,14 +1,5 @@
 var env = '{}';
 
-async function createEnv() {
-	let response = await fetch('http://127.0.0.1:5000/getenv/');
-	let data = await response.json();
-	env = data;
-	return data
-}
-
-//createEnv();
-
 var term = new Terminal({
 	cursorBlink: "block"
 });
