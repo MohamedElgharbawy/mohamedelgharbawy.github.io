@@ -42,17 +42,17 @@ term.onData(function (ev) {
 				});
 
 		} else {
-			//term.write('\n\33[2K\r\u001b[32mscm> \u001b[37m');
+			term.write('\n\33[2K\r\u001b[32mscm> \u001b[37m');
 		}
 		curr_line = '';
 	} else if (ev === "\x7F") { // Backspace
 		if (term.buffer.cursorX > 5) {
 			curr_line = curr_line.slice(0, term.buffer.cursorX - 6) + curr_line.slice(term.buffer.cursorX - 5);
 			pos = curr_line.length - term.buffer.cursorX + 6;
-			//term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
-			//term.write('\033['.concat(pos.toString()).concat('D')); //term.write('\033[<N>D');
+			term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
+			term.write('\033['.concat(pos.toString()).concat('D')); //term.write('\033[<N>D');
 			if (term.buffer.cursorX == 5 || term.buffer.cursorX == curr_line.length + 6) {
-				//term.write('\033[1C');
+				term.write('\033[1C');
 			}
 		}
 	} else if (ev === "[A") { // Up Arrow
@@ -61,17 +61,17 @@ term.onData(function (ev) {
 				currPos -= 1;
 			}
 			curr_line = entries[currPos];
-			//term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
+			term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
 		}
 	} else if (ev === "[B") { // Down Arrow
 		currPos += 1;
 		if (currPos === entries.length || entries.length === 0) {
 			currPos -= 1;
 			curr_line = '';
-			//term.write('\33[2K\r\u001b[32mscm> \u001b[37m');
+			term.write('\33[2K\r\u001b[32mscm> \u001b[37m');
 		} else {
 			curr_line = entries[currPos];
-			//term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
+			term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
 
 		}
 	} else if (printable && !(ev === "[C" && term.buffer.cursorX > curr_line.length + 4)) {
@@ -86,10 +86,9 @@ term.onData(function (ev) {
 				pos = curr_line.length - term.buffer.cursorX + 5;
 			}
 			curr_line = [curr_line.slice(0, term.buffer.cursorX - 5), input, curr_line.slice(term.buffer.cursorX - 5)].join('');
-			//var cursor = '\033['.concat(pos.toString()).concat('D');
-			//term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
+			var cursor = '\033['.concat(pos.toString()).concat('D');
+			term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
 			term.write('\r\u001b[32mscm> \u001b[37m' + curr_line);
-			//term.write("HI");
 		} else {
 			term.write(ev);
 		}
