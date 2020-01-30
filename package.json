@@ -1,0 +1,28 @@
+{
+  "name": "terminal",
+  "version": "1.0.0",
+  "description": "An addon for xterm.js that enables fitting the terminal's dimensions to a containing element.",
+  "main": "xterm-addon-fit/out/FitAddon",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedElgharbawy/mohamedelgharbawy.github.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohamedElgharbawy/mohamedelgharbawy.github.com/issues"
+  },
+  "homepage": "https://github.com/MohamedElgharbawy/mohamedelgharbawy.github.com#readme",
+  "dependencies": {
+    "ansi-escapes": "^4.3.0",
+    "browserify": "^16.5.0",
+    "xterm-addon-fit": "^0.3.0"
+  },
+  "devDependencies": {}
+}
