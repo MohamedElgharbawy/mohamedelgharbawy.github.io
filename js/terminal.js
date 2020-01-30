@@ -11,9 +11,9 @@ var pos = 0;
 
 term.open(document.getElementById('terminal'));
 term.prompt = () => {
-	term.write('\n\r' + curr_line + '\n\u001b[32mscm> \u001b[37m');
+	term.write('\r' + curr_line + '\n\u001b[32mscm> \u001b[37m');
 };
-term.write('Welcome to my Scheme web intepreter!');
+term.write('Welcome to my Scheme web intepreter!\n');
 term.prompt();
 
 term.onData(function (ev) {
