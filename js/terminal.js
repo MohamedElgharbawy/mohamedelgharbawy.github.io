@@ -23,19 +23,22 @@ term.onData(function (ev) {
 	if (ev === "\r") { // Enter key
 		if (curr_line.replace(/^\s+|\s+$/g, '').length != 0) { // Check if string is all whitespace
 			entries.push(curr_line);
-			currPos = entries.length - 1;
+			currPos = entries.length;
 			curr_line = encodeURIComponent(curr_line);
-			console.log(curr_line);
-			console.log(env);
 			fetch('http://127.0.0.1:5000/getval/?expr=' + curr_line.toString() + '&env=' + encodeURIComponent(env))
 				.then((res) => {
-					return res.json()
+					return res.json();
 				})
 				.then((data) => {
-					if (data.expr != null && data.expr.substring(0, 5) === 'Error') {
-						term.write('\n\r\u001b[31m' + data.expr);
-					} else {
-						term.write('\n\r' + data.expr);
+					data.outputs.forEach(element => {
+						term.write("\n\r" + element);
+					});
+					if (data.expr != '') {
+						if (data.expr != null && data.expr.substring(0, 5) === 'Error') {
+							term.write('\n\r\u001b[31m' + data.expr);
+						} else {
+							term.write('\n\r' + data.expr);
+						}
 					}
 					env = data.env;
 					term.prompt();
@@ -87,8 +90,7 @@ term.onData(function (ev) {
 			}
 			curr_line = [curr_line.slice(0, term.buffer.cursorX - 5), input, curr_line.slice(term.buffer.cursorX - 5)].join('');
 			var cursor = '\033['.concat(pos.toString()).concat('D');
-			term.write('\33[2K\r\u001b[32mscm> \u001b[37m' + curr_line);
-			term.write('\r\u001b[32mscm> \u001b[37m' + curr_line);
+			term.write('\r\u001b[32mscm> \u001b[37m' + curr_line + cursor);
 		} else {
 			term.write(ev);
 		}
