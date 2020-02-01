@@ -18,7 +18,7 @@ term.prompt();
 
 term.onData(function (ev) {
 	const printable = !ev.altKey && !ev.altGraphKey && !ev.ctrlKey && !ev.metaKey &&
-		!(ev === "[D" && term.buffer.cursorX < 6);
+		!(ev === "[D" && term.buffer.cursorX < 6) && !(ev === "[1;2A" || ev === "[1;2B" || ev === "[1;2C" || ev === "[1;2D");
 
 	if (ev === "\r") { // Enter key
 		if (curr_line.replace(/^\s+|\s+$/g, '').length != 0) { // Check if string is all whitespace
