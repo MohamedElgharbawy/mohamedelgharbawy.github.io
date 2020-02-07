@@ -1,3 +1,5 @@
+fetch('https://momo-infinity.herokuapp.com'); // Wake up Flask backend
+
 var env = '{}';
 
 var term = new Terminal({
@@ -25,21 +27,19 @@ term.onData(function (ev) {
 	const printable = !ev.altKey && !ev.altGraphKey && !ev.ctrlKey && !ev.metaKey &&
 		!(ev === "[D" && term.buffer.cursorX < 6) && !(ev === "[1;2A" || ev === "[1;2B" || ev === "[1;2C" || ev === "[1;2D");
 
+	console.log(ev);
+
 	if (ev === "\r") { // Enter key
 		final_input += " " + curr_line;
 
 		if (opened > 0) {
 			prefix = "...> "
 			term.write('\n\33[2K\r\u001b[32m' + prefix + '\u001b[37m');
-
-			/*else if (final_input.replace(/\s+/g, '') === '(life)') {
-				term.write('\n\r|__  o\\\n\r| W    \\O \n\r|       |\\_\n\r|      /-\\ \n\r|    /     \\\n\r|');
-				prefix = "scm> ";
-				curr_line = '';
-				term.prompt();*/
 		} else if (final_input.replace(/^\s+|\s+$/g, '').length != 0) { // Check if string is all whitespace
 			currPos = entries.length;
 			final_input = encodeURIComponent(final_input);
+			term.write('\n');
+			term.cursorBlink = false;
 			fetch('https://momo-infinity.herokuapp.com/getval/?expr=' + final_input.toString() + '&env=' + encodeURIComponent(env))
 				.then((res) => {
 					return res.json();
