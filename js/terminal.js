@@ -45,8 +45,12 @@ term.onData(function (ev) {
 					return res.json();
 				})
 				.then((data) => {
-					data.outputs.forEach(element => {
-						term.write("\r\n" + element);
+					data.outputs.forEach(funciton(element, idx, array) {
+						if (idx === array.length - 1) {
+							term.write("\r" + element)
+						} else {
+							term.write("\r" + element + "\n");
+						}
 					});
 					if (data.expr != '') {
 						if (data.expr != null && data.expr && data.expr.substring(0, 5) === 'Error') {
