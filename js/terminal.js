@@ -20,7 +20,7 @@ term.open(document.getElementById('terminal'));
 term.prompt = () => {
 	term.write('\r' + curr_line + '\n\u001b[32mscm> \u001b[37m');
 };
-term.write('Welcome to my Scheme web intepreter! This is in beta [V1.1]. https://google.com\n');
+term.write('Welcome to my Scheme web intepreter! This is in beta [B1.0].\n');
 term.prompt();
 
 term.onData(function (ev) {
