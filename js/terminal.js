@@ -41,7 +41,6 @@ term.onData(function (ev) {
 			currPos = entries.length;
 			final_input = encodeURIComponent(final_input);
 			term.write('\n\r');
-			term.cursorBlink = false;
 			fetch('https://momo-infinity.herokuapp.com/getval/?expr=' + final_input.toString() + '&env=' + encodeURIComponent(env))
 				.then((res) => {
 					return res.json();
@@ -49,7 +48,11 @@ term.onData(function (ev) {
 				.then((data) => {
 					data.outputs.forEach(function (element, idx, array) {
 						if (idx === array.length - 1) {
-							term.write("\r" + element)
+							if (data.expr === '') {
+								term.write("\r" + element);
+							} else {
+								term.write("\r" + element + "\n");
+							}
 						} else {
 							term.write("\r" + element + "\n");
 						}
