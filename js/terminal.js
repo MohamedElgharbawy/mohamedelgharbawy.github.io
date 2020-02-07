@@ -27,8 +27,6 @@ term.onData(function (ev) {
 	const printable = !ev.altKey && !ev.altGraphKey && !ev.ctrlKey && !ev.metaKey &&
 		!(ev === "[D" && term.buffer.cursorX < 6) && !(ev === "[1;2A" || ev === "[1;2B" || ev === "[1;2C" || ev === "[1;2D");
 
-	console.log(ev);
-
 	if (ev === "\r") { // Enter key
 		final_input += " " + curr_line;
 
@@ -45,7 +43,7 @@ term.onData(function (ev) {
 					return res.json();
 				})
 				.then((data) => {
-					data.outputs.forEach(funciton(element, idx, array) {
+					data.outputs.forEach(function (element, idx, array) {
 						if (idx === array.length - 1) {
 							term.write("\r" + element)
 						} else {
@@ -83,14 +81,12 @@ term.onData(function (ev) {
 			}
 		}
 	} else if (ev === "[A") { // Up Arrow
-		console.log(entries.length);
 		if (entries.length > 0) {
 			if (currPos > 0) {
 				currPos -= 1;
 			}
 			curr_line = entries[currPos];
 			term.write('\33[2K\r\u001b[32m' + prefix + '\u001b[37m' + curr_line);
-			console.log(opened);
 		}
 	} else if (ev === "[B") { // Down Arrow
 		currPos += 1;
