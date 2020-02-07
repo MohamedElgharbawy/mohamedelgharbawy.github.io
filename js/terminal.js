@@ -20,7 +20,7 @@ term.open(document.getElementById('terminal'));
 term.prompt = () => {
 	term.write('\r' + curr_line + '\n\u001b[32mscm> \u001b[37m');
 };
-term.write('Welcome to my Scheme web intepreter! This is in Beta.\n');
+term.write('Welcome to my Scheme web intepreter! This is in beta [V1.1]. https://google.com\n');
 term.prompt();
 
 term.onData(function (ev) {
@@ -29,6 +29,10 @@ term.onData(function (ev) {
 
 	if (ev === "\r") { // Enter key
 		final_input += " " + curr_line;
+
+		if (curr_line.replace(/^\s+|\s+$/g, '').length != 0) {
+			entries.push(curr_line);
+		}
 
 		if (opened > 0) {
 			prefix = "...> "
@@ -52,9 +56,9 @@ term.onData(function (ev) {
 					});
 					if (data.expr != '') {
 						if (data.expr != null && data.expr && data.expr.substring(0, 5) === 'Error') {
-							term.write('\n\r\u001b[31m' + data.expr);
+							term.write('\r\u001b[31m' + data.expr);
 						} else {
-							term.write('\n\r' + data.expr);
+							term.write('\r' + data.expr);
 						}
 					}
 					prefix = "scm> "
