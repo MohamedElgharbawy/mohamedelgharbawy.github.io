@@ -38,7 +38,7 @@ term.onData(function (ev) {
 		} else if (final_input.replace(/^\s+|\s+$/g, '').length != 0) { // Check if string is all whitespace
 			currPos = entries.length;
 			final_input = encodeURIComponent(final_input);
-			term.write('\n');
+			term.write('\n\r');
 			term.cursorBlink = false;
 			fetch('https://momo-infinity.herokuapp.com/getval/?expr=' + final_input.toString() + '&env=' + encodeURIComponent(env))
 				.then((res) => {
@@ -46,7 +46,7 @@ term.onData(function (ev) {
 				})
 				.then((data) => {
 					data.outputs.forEach(element => {
-						term.write("\n\r" + element);
+						term.write("\r\n" + element);
 					});
 					if (data.expr != '') {
 						if (data.expr != null && data.expr && data.expr.substring(0, 5) === 'Error') {
