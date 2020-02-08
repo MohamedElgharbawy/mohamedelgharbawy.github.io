@@ -41,7 +41,7 @@ term.onData(function (ev) {
 			currPos = entries.length;
 			final_input = encodeURIComponent(final_input);
 			term.write('\n\r');
-			fetch('https://momo-infinity.herokuapp.com/getval/?expr=' + final_input.toString() + '&env=' + encodeURIComponent(env))
+			fetch('http://127.0.0.1:5000/getval/?expr=' + final_input.toString() + '&env=' + encodeURIComponent(env))
 				.then((res) => {
 					return res.json();
 				})
@@ -66,6 +66,7 @@ term.onData(function (ev) {
 					}
 					prefix = "scm> "
 					env = data.env;
+					console.log(env);
 					final_input = "";
 					term.prompt();
 				});
