@@ -20,7 +20,8 @@ term.open(document.getElementById('terminal'));
 term.prompt = () => {
 	term.write('\r' + curr_line + '\n\u001b[32mscm> \u001b[37m');
 };
-term.write('Welcome to my Scheme web intepreter! This is in beta [B1.0].\n');
+term.write('Welcome to my Scheme web intepreter! This is in beta [B1.1].\n\n\r');
+term.write('This interpreter is optimized for tail recursion.\n')
 term.prompt();
 
 term.onData(function (ev) {
