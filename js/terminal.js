@@ -41,7 +41,7 @@ term.onData(function (ev) {
 			currPos = entries.length;
 			final_input = encodeURIComponent(final_input);
 			term.write('\n\r');
-			fetch('http://127.0.0.1:5000/getval/?expr=' + final_input.toString() + '&env=' + encodeURIComponent(env))
+			fetch('https://momo-infinity.herokuapp.com/getval/?expr=' + final_input.toString() + '&env=' + encodeURIComponent(env))
 				.then((res) => {
 					return res.json();
 				})
