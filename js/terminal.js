@@ -1,5 +1,15 @@
 fetch('https://momo-infinity.herokuapp.com'); // Wake up Flask backend
 
+function char_count(str, letter) {
+	var letter_Count = 0;
+	for (var position = 0; position < str.length; position++) {
+		if (str.charAt(position) == letter) {
+			letter_Count += 1;
+		}
+	}
+	return letter_Count;
+}
+
 var env = '{}';
 
 var term = new Terminal({
@@ -34,6 +44,8 @@ term.onData(function (ev) {
 		if (curr_line.replace(/^\s+|\s+$/g, '').length != 0) {
 			entries.push(curr_line);
 		}
+
+		opened += char_count(curr_line, '(') - char_count(curr_line, ')')
 
 		if (opened > 0) {
 			prefix = "...> "
@@ -113,12 +125,6 @@ term.onData(function (ev) {
 			var input = ev;
 			if (ev == "\t") {
 				input = "    ";
-			}
-			if (ev == "(") {
-				opened += 1;
-			}
-			if (ev == ")" && opened > 0) {
-				opened -= 1;
 			}
 			if (term.buffer.cursorX === curr_line.length + 5) { // End of line
 				pos = curr_line.length - term.buffer.cursorX + 4;
