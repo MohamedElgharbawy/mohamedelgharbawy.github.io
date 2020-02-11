@@ -45,7 +45,7 @@ term.onData(function (ev) {
 			entries.push(curr_line);
 		}
 
-		opened += char_count(curr_line, '(') - char_count(curr_line, ')')
+		opened += char_count(curr_line, '(') - char_count(curr_line, ')');
 
 		if (opened > 0) {
 			prefix = "...> "
@@ -90,9 +90,6 @@ term.onData(function (ev) {
 		curr_line = '';
 	} else if (ev === "\x7F") { // Backspace
 		if (term.buffer.cursorX > 5) {
-			if (curr_line[curr_line.length - 1] === '(') {
-				opened -= 1;
-			}
 			curr_line = curr_line.slice(0, term.buffer.cursorX - 6) + curr_line.slice(term.buffer.cursorX - 5);
 			pos = curr_line.length - term.buffer.cursorX + 6;
 			term.write('\33[2K\r\u001b[32m' + prefix + '\u001b[37m' + curr_line);
