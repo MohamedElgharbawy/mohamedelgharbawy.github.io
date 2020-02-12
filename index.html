@@ -41,7 +41,6 @@
 			darkEnabled = false;
 			DarkReader.disable();
 		} else {
-			console.log("dark mode was known to be on")
 			darkEnabled = true;
 			DarkReader.enable({
 				brightness: 100,
@@ -49,13 +48,14 @@
 				sepia: 0
 			});
 		}
+
 	</script>
 
 	<!--/ Nav Start /-->
 	<nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
 		<div class="container">
 			<a class="navbar-brand js-scroll" href="#page-top">Mohamed Elgharbawy</a>
-			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation" id="nav-button">
 				<span></span>
 				<span></span>
 				<span></span>
@@ -63,7 +63,7 @@
 			<div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link js-scroll active" href="#aboutme">About</a>
+						<a class="nav-link js-scroll active" href="#about">About</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link js-scroll" href="#service">Skills</a>
@@ -76,9 +76,6 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link js-scroll" href="#contact">Contact</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link js-scroll" href="https://mohamedelgharbawy.github.io/scheme" target="_blank">Scheme Interpreter</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="javascript:void(0)" onclick="dark_toggle();return false;">
@@ -112,42 +109,6 @@
 					<div class="box-shadow-full">
 						<div class="row">
 							<div class="col-md-6">
-								<div class="row">
-									<div class="col-sm-6 col-md-5">
-										<div class="about-img">
-											<img src="img/profilePic.jpg" class="img-fluid rounded b-shadow-a" alt="">
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-7">
-										<div class="about-info">
-											<p><span class="title-s">Name: </span> <span>Mohamed Elgharbawy</span></p>
-											<p><span class="title-s">Education: </span> <span>UC Berkeley undergraduate</span></p>
-											<p><span class="title-s">Email: </span> <a href="mailto:mwelgharb@gmail.com" target="_blank"><span>mwelgharb@gmail.com</span></a></p>
-											<p><span class="title-s">Phone: </span> <a href="tel:4088389811" target="_blank"> <span>(408) 838-9811</span></a></p>
-										</div>
-									</div>
-								</div>
-								<div class="skill-mf">
-									<p class="title-s">Skills</p>
-									<span>Java</span> <span class="pull-right">Advanced</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-									<span>C++</span> <span class="pull-right">Advanced</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-									<span>Python</span> <span class="pull-right">Intermediate</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-									<span>iOS Development</span> <span class="pull-right">Learning</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
 								<div class="about-me pt-4 pt-md-0">
 									<div class="title-box-2">
 										<h5 class="title-left">
@@ -155,7 +116,7 @@
 										</h5>
 									</div>
 									<p class="lead">
-										Hi! My name is Mohamed Elgharbawy. I've been a developer since I was 12, and love working on projects and learning new languages. I live in the Bay Area, and attend UC Berkeley. I'm currently pursuing a bachelor's degree in Computer Science.
+										Hi! My name is Mohamed Elgharbawy. I live in the Bay Area, and attend UC Berkeley. I'm currently pursuing a bachelor's degree in Computer Science.
 									</p>
 									<p class="lead">
 										I began learning computer science around middle school, and have stuck with it ever since. I enjoy showcasing my creativity and problem solving skills through projects, both at school and in my free time. In fact, this website was a project I decided to accomplish during the summer!
@@ -163,6 +124,15 @@
 									<p class="lead">
 										In my free time, you can catch me playing basketball with my friends, watching the Warriors, and going to the gym. I also love playing video games, as it's been a passion of mine for many years.
 									</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="row" style="display: flex;align-items: center;justify-content: center;">
+									<div class="col-lg-8">
+										<div class="about-img">
+											<img src="img/profilePic.jpg" class="img-fluid rounded-circle" alt="" width="1000" height="1000">
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -257,9 +227,9 @@
 									<h6 class="category">De Anza College</h6>
 								</div>
 							</div>
-							<h3 class="card-title">Computer Science Teaching Assistant</h3>
-							<p class="card-description">
-								As a teaching assistant, I helped other college students understand and grasp the fundamentals of programming (specifically Java).
+							<h3 class="card-title text-center">Computer Science TA</h3>
+							<p class="card-description text-center">
+								As a teaching assistant, I helped other college students understand and grasp the fundamentals of programming. Java was the primary language used throughout projects and homework.
 							</p>
 							<br>
 						</div>
@@ -281,8 +251,8 @@
 									<h6 class="category">AI Health, Inc.</h6>
 								</div>
 							</div>
-							<h3 class="card-title">Computer Science Intern</h3>
-							<p class="card-description">
+							<h3 class="card-title text-center">Computer Science Intern</h3>
+							<p class="card-description text-center">
 								As a software intern at this startup, I assisted in writing the primary software to detect if fraud is occurring at a dental office. I frequently used C++, Python, MySQL, Apache, and phpMyAdmin.
 							</p>
 							<br>
@@ -305,8 +275,8 @@
 									<h6 class="category">De Anza College</h6>
 								</div>
 							</div>
-							<h3 class="card-title">Senior English Tutor</h3>
-							<p class="card-description">
+							<h3 class="card-title text-center">Senior English Tutor</h3>
+							<p class="card-description text-center">
 								As a Senior English Tutor, I not only assisted the students that came in on a daily basis to get help with their essays and reading, but also trained and mentored new hire tutors during their first year.
 							</p>
 							<br>
@@ -478,4 +448,6 @@
 	<!-- IonIcons -->
 	<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
-</body></html>
+</body>
+
+</html>
