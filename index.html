@@ -32,8 +32,11 @@
 
 <body id="page-top">
 
-	<!--/ Nav Start /-->
+	<!--/ Dark Mode /-->
 	<script>
+		if (localStorage.getItem("darkEnabled") === null) {
+			localStorage.setItem("darkEnabled", "false");
+		}
 		if (localStorage.getItem("darkEnabled") === "false") {
 			darkEnabled = false;
 			DarkReader.disable();
@@ -47,6 +50,8 @@
 			});
 		}
 	</script>
+
+	<!--/ Nav Start /-->
 	<nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
 		<div class="container">
 			<a class="navbar-brand js-scroll" href="#page-top">Mohamed Elgharbawy</a>
