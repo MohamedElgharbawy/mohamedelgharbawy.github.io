@@ -119,10 +119,12 @@
 })(jQuery);
 
 var darkEnabled;
+var darkIcon = document.querySelector('#darkIcon');
 
 function dark_toggle() {
 	if (darkEnabled === false) {
 		darkEnabled = true;
+		darkIcon.name = "moon";
 		localStorage.setItem("darkEnabled", "true");
 		DarkReader.enable({
 			brightness: 100,
@@ -132,6 +134,7 @@ function dark_toggle() {
 	} else {
 		localStorage.setItem("darkEnabled", "false");
 		darkEnabled = false;
+		darkIcon.name = "moon-outline";
 		DarkReader.disable();
 	}
 }
