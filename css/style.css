@@ -735,6 +735,12 @@ a:hover {
 	padding: .4rem 0;
 }
 
+.service-box .ios-title {
+	font-size: 1.4rem;
+	text-align: center;
+	padding: .4rem 0;
+}
+
 .service-box .s-description {
 	color: #4e4e4e;
 }
