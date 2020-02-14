@@ -602,6 +602,8 @@ a:hover {
 	height: 100vh;
 	position: relative;
 	color: #fff;
+	background-image: url("../img/work-4.jpg");
+	background-repeat: no-repeat;
 }
 
 .intro .intro-content {
@@ -610,7 +612,7 @@ a:hover {
 }
 
 .intro .overlay-itro {
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgb(0, 0, 0, 0.6);
 	position: absolute;
 	top: 0;
 	left: 0px;
@@ -1094,7 +1096,7 @@ footer .credits a {
 }
 
 /*======================================
-//--//-->   CONtaCT FORM
+//--//-->   CONTACT FORM
 ======================================*/
 
 #sendmessage {
