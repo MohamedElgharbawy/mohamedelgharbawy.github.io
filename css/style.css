@@ -602,9 +602,8 @@ a:hover {
 	height: 100vh;
 	position: relative;
 	color: #fff;
-	background-image: url("../img/work-4.jpg");
+	background-image: url("../img/work.jpg");
 	background-repeat: no-repeat;
-	min-height: 100%;
 }
 
 .intro .intro-content {
