@@ -28,6 +28,7 @@ var final_input = "";
 
 term.open(document.getElementById('terminal'));
 term.prompt = () => {
+	term.setOption('disableStdin', false)
 	term.write('\r' + curr_line + '\n\u001b[32mscm> \u001b[37m');
 };
 term.write('Welcome to my Scheme web intepreter! This is in beta [B1.1].\n\n\r');
@@ -54,6 +55,7 @@ term.onData(function (ev) {
 			currPos = entries.length;
 			final_input = encodeURIComponent(final_input);
 			term.write('\n\r');
+			term.setOption('disableStdin', true)
 			fetch('https://momo-infinity.herokuapp.com/getval/?expr=' + final_input.toString() + '&env=' + encodeURIComponent(env))
 				.then((res) => {
 					return res.json();
