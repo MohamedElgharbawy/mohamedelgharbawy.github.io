@@ -31,7 +31,7 @@ term.prompt = () => {
 	term.setOption('disableStdin', false)
 	term.write('\r' + curr_line + '\n\u001b[32mscm> \u001b[37m');
 };
-term.write('Welcome to my Scheme web intepreter! This is in beta [B1.1].\n\n\r');
+term.write('Welcome to my Scheme web intepreter! This is in beta [B1.2].\n\n\r');
 term.write('This interpreter supports Macros, and is optimized for tail recursion.\n')
 term.prompt();
 
