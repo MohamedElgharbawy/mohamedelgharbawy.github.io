@@ -1,5 +1,9 @@
 # Personal Website
 
-In progress
+This portfolio features my skills, experience, and projects. 
 
-In accordance with UC Berkeley's academic honesty policies, the source code for the scheme backend has been made private.
+Additionally, it hosts a scheme interpeter. 
+
+![](img/schemegif.gif)
+
+In accordance with UC Berkeley's academic honesty policies, the source code for the backend of this interpeter has been made private.
