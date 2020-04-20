@@ -3,7 +3,7 @@
 This portfolio features my skills, experience, and projects. 
 
 
-Additionally, it hosts a <a href="https://mohamedelgharbawy.github.io/scheme" target="_blank">scheme interpeter</a>.
+Additionally, it hosts a [scheme interpreter](https://mohamedelgharbawy.github.io/scheme).
 
 
 ![](img/schemegif.gif)
