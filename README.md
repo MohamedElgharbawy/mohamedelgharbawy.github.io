@@ -2,7 +2,8 @@
 
 This portfolio features my skills, experience, and projects. 
 
-Additionally, it hosts a ![scheme interpeter](https://mohamedelgharbawy.github.io/scheme). 
+
+Additionally, it hosts a [scheme interpeter](https://mohamedelgharbawy.github.io/scheme). 
 
 ![](img/schemegif.gif)
 
