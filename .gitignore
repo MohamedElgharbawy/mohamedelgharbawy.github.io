@@ -1,3 +1,2 @@
-
-scheme_backend/
-.DS_Store
+**/.DS_Store
+src/scheme_backend
